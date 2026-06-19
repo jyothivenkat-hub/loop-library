@@ -1,23 +1,30 @@
-# Interview synthesis loop
+# Interview synthesis
 
-> Code every transcript against your questions, with evidence behind every theme.
+> Code every transcript against your questions, with evidence behind every insight.
 
-**Goal:** Every transcript is coded against the research questions, and every theme is backed by at least two quotes from different participants.
+## Goal (the what)
 
-- **Trigger:** After a round of interviews is transcribed.
-- **Action:** Read a transcript, tag segments against the research questions, group tags into themes.
-- **Proof:** A theme table where each row lists supporting quotes and which participant said them.
-- **Memory:** Themes already found, so later transcripts add evidence instead of starting over.
-- **Stop condition:** All transcripts coded, every theme has two or more quotes from different participants.
+- **Objective:** Analyze recent user interview transcripts.
+- **Success criteria:** Top 5 pain points identified with evidence, plus key insights summarized with representative quotes.
+- **Constraints:** Every pain point needs at least two quotes from different participants. No insight without a source.
+- **Context:** The transcripts and the research questions.
+
+## Loop (the how)
+
+- **Think:** Read a transcript, decide which segments map to which research question.
+- **Act:** Tag the segments, group tags into candidate themes.
+- **Observe:** Check each theme for at least two quotes from two participants.
+- **Reflect / Plan:** Carry confirmed themes forward, let later transcripts add evidence.
+- **Stop when:** All transcripts are coded and the top 5 pain points each meet the two-quote, two-participant bar.
 
 ## Starter prompt
 
 ```
 Here are [N] interview transcripts and my research questions. Code each transcript:
-tag segments against the questions, then group tags into themes. Build a theme table
-where every row lists its supporting quotes and the participant who said each one.
-A theme only counts if it has at least two quotes from two different participants.
-Process all transcripts. Stop when every transcript is coded and every theme meets
-the two-quote, two-participant bar. Flag any single-source patterns separately so I
-can decide whether to keep them.
+tag segments against the questions, then group them into themes. Identify the top 5
+pain points, each backed by at least two quotes from two different participants. Build
+a summary of key insights with representative quotes and the participant for each.
+Process all transcripts. Stop when every transcript is coded and each of the top 5
+pain points meets the two-quote, two-participant bar. Flag single-source patterns
+separately so I can decide whether to keep them.
 ```

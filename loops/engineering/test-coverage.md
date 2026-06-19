@@ -1,21 +1,28 @@
-# Test coverage loop
+# Test coverage
 
 > Drive coverage to the bar with a green suite, not just more test files.
 
-**Goal:** The full test suite passes at 100% coverage (or your team's agreed bar).
+## Goal (the what)
 
-- **Trigger:** When coverage has slipped, or before locking a module.
-- **Action:** Find uncovered lines, write meaningful tests for them, run the suite.
-- **Proof:** The coverage report and a green suite.
-- **Memory:** Lines already covered this run, so the agent targets the gaps.
-- **Stop condition:** Coverage hits the bar and the suite is green.
+- **Objective:** Raise test coverage on a module.
+- **Success criteria:** Coverage hits the agreed bar (e.g. 100%) and the full suite passes.
+- **Constraints:** Tests must exercise real behavior. Do not delete or weaken tests to game the number.
+- **Context:** The module, the test runner, and the coverage tool.
+
+## Loop (the how)
+
+- **Think:** Read the coverage report, pick the next uncovered path.
+- **Act:** Write a meaningful test for it.
+- **Observe:** Run the suite and the coverage report.
+- **Reflect / Plan:** Target the next gap, fix any test that broke.
+- **Stop when:** Coverage hits the bar and the suite is green.
 
 ## Starter prompt
 
 ```
-Get this module to [100]% test coverage with a passing suite. Find uncovered lines,
-write tests that actually exercise the behavior (not just touch the line), and run
-the suite each pass. Show the coverage report after every pass. Do not delete or
-weaken existing tests to game coverage. Stop only when coverage hits the bar and the
+Get this module to [100]% coverage with a passing suite. Read the coverage report,
+find uncovered lines, and write tests that actually exercise the behavior, not just
+touch the line. Run the suite each pass. Do not delete or weaken existing tests. Show
+the coverage report after every pass. Stop only when coverage hits the bar and the
 full suite is green.
 ```

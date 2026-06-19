@@ -1,40 +1,55 @@
-# Loop Library
+# AI Agent Goal & Loop Library
 
-A collection of repeatable AI agent workflows built around one simple idea: give the agent a **goal** and a **loop**, not a one-off request.
+Ready-to-use goals and loop patterns that turn AI from a fancy chatbot into an autonomous worker.
 
-Most people use AI like a vending machine. Type a request, get one output, eyeball it, retype it if it is wrong. That works for quick stuff and falls apart the moment a task has more than one round of work in it. Loops fix that.
+Most people give AI one prompt and hope for the best. Agents with a clear **goal** and a robust **loop** are different: they handle multi-step work, recover from failures, use tools, and iterate until the work is actually done.
 
-## The pattern
+## Goal vs Loop
 
-A **goal** is what "done" looks like, in a sentence you can check.
-A **loop** is the agent doing work, checking its own work, then deciding whether to go again.
-A **stop condition** is the measurable line that tells the agent when it is allowed to quit.
+A **Goal** is the destination, the clear objective you want the agent to achieve. It defines what success looks like.
 
-Every loop in here follows the same five-part shape:
+A **Loop** (the Agent Loop or Reasoning Loop) is the engine, the repeating cycle the agent runs to get there: think, act, observe, adjust, repeat until the goal is met or it runs out of steps.
 
-- **Trigger** - when the workflow kicks off
-- **Action** - the steps the agent repeats
-- **Proof** - how it verifies the work actually meets the bar
-- **Memory** - what it carries between rounds so it does not repeat itself
-- **Stop condition** - the measurable line that ends the loop
+- **Goal = the "What"**
+- **Loop = the "How"**
+
+## The components
+
+**Goal components** (usually defined once):
+
+- Clear objective
+- Success criteria
+- Constraints (budget, time, format)
+- Context (background information)
+
+**Loop components** (the repeating cycle):
+
+- **Think** - reason about the current state and the next best step
+- **Act** - use a tool, write code, send an email
+- **Observe** - read the result of the action
+- **Reflect / Plan** - update understanding, decide the next move
+- **Repeat** - until the goal is achieved or a stopping condition is met
 
 ## Good goal vs bad goal
 
-A bad goal is vague, so the agent never knows when to stop. A good goal reads like a finish line.
+A bad goal is vague, so the agent never knows when to stop.
 
-| Bad | Good |
-|-----|------|
-| Make the page faster | Every page loads in under 50ms |
-| Add some tests | The full test suite passes at 100% coverage |
-| Clean up the docs | Documentation matches the current implementation, finished as a reviewable pull request |
+> "Help me with my product."
 
-If you cannot write the stop condition, you do not have a goal yet, you have a wish. Tighten it until you can.
+A good goal is specific, has success criteria, and reads like a finish line.
 
-## The loops
+> "Conduct a competitive analysis of 5 similar productivity tools, identify 3 key UX gaps in our current app, and deliver a prioritized list of 8 improvement recommendations with Figma mockup concepts."
+
+If you cannot tell whether the result meets the goal by looking at it, tighten the goal until you can.
+
+## The library
+
+Each file has a Goal (objective, success criteria, constraints, context), a Loop config (think, act, observe, reflect, stop), and a starter prompt you can paste straight into an agent.
 
 **Everyday**
+- [Weekly planning](loops/everyday/weekly-plan.md)
 - [Inbox triage](loops/everyday/inbox-triage.md)
-- [Weekly meal plan](loops/everyday/meal-plan.md)
+- [Meal plan](loops/everyday/meal-plan.md)
 - [Trip itinerary](loops/everyday/trip-itinerary.md)
 
 **UX Research**
@@ -42,28 +57,29 @@ If you cannot write the stop condition, you do not have a goal yet, you have a w
 - [Survey open-text coding](loops/ux-research/survey-open-text.md)
 - [Usability findings](loops/ux-research/usability-findings.md)
 
-**Design**
-- [Component audit](loops/design/component-audit.md)
-- [Accessibility pass](loops/design/accessibility-pass.md)
-- [Reference match](loops/design/reference-match.md)
+**UX Design**
+- [Checkout redesign](loops/ux-design/checkout-redesign.md)
+- [Component audit](loops/ux-design/component-audit.md)
+- [Accessibility pass](loops/ux-design/accessibility-pass.md)
+- [Reference match](loops/ux-design/reference-match.md)
 
 **Engineering**
+- [FastAPI backend](loops/engineering/fastapi-backend.md)
 - [Test coverage](loops/engineering/test-coverage.md)
 - [Production error sweep](loops/engineering/production-error-sweep.md)
 - [Ticket to PR-ready](loops/engineering/ticket-to-pr-ready.md)
 - [Fresh clone](loops/engineering/fresh-clone.md)
 
+**Product**
+- [Go-to-market strategy](loops/product/gtm-strategy.md)
+- [Competitive analysis](loops/product/competitive-analysis.md)
+
 ## Write your own
 
-Copy [TEMPLATE.md](TEMPLATE.md) and fill in four lines:
+Copy [TEMPLATE.md](TEMPLATE.md). Write the goal first (objective, success criteria, constraints, context), then the loop (think, act, observe, reflect, stop). Writing good goals: be specific, include success criteria, add context and constraints, use action verbs. Designing loops: give the agent good tools and memory, add reflection steps, set clear stopping conditions.
 
-1. **Goal** - what does done look like, in a sentence I can check?
-2. **Stop condition** - the measurable line. If I cannot tell whether it is met by looking, rewrite it.
-3. **Proof** - what does the agent show me to prove the bar is hit?
-4. **Memory** - what should it carry between rounds so it does not loop forever or repeat itself?
+Mastering goals gives you direction. Mastering loops gives you execution power. Combine both and you turn AI from a helpful assistant into a true collaborator.
 
-That is the whole thing. Specific goal, a loop that proves its own work, and a line that says when to stop. The difference between an agent that spins and one that actually finishes.
+---
 
-## Credit
-
-The goal + loop + stop condition framing here is my own take on a pattern that shows up in a lot of agent work. If you want a larger, engineering-heavy set to study, the [Forward Future Loop Library](https://signals.forwardfuture.ai/loop-library/) is worth a read.
+*For a larger, engineering-heavy set to study, the [Forward Future Loop Library](https://signals.forwardfuture.ai/loop-library/) is worth a read.*
